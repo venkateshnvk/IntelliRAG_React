@@ -1,38 +1,286 @@
-.App {
-  text-align: center;
+/* ================= GLOBAL ================= */
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  background: #f4f6f9;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-container {
+  display: flex;
+  height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+  width: 300px;
+  background: #0f172a;
+  color: white;
+  padding: 20px;
+  overflow-y: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sidebar h2 {
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+/* ================= SECTIONS ================= */
+
+.sidebar-section {
+  margin-top: 26px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.sidebar-section:last-child {
+  border-bottom: none;
+}
+
+.sidebar-section h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e2e8f0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 10px;
+}
+
+.sidebar-section h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 14px;
+  background: #3b82f6;
+  border-radius: 2px;
+}
+
+.sidebar-section p {
+  font-size: 13px;
+  color: #cbd5e1;
+  margin: 4px 0;
+}
+
+/* ================= METRICS ================= */
+
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+/* ================= DROPDOWN ================= */
+
+.sidebar select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  margin-top: 8px;
+  border: none;
+}
+
+/* ================= SESSIONS ================= */
+
+.session-item {
+  background: rgba(255,255,255,0.05);
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.session-item:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.session-item.active {
+  background: rgba(59,130,246,0.25);
+}
+
+.session-time {
+  font-size: 10px;
+  opacity: 0.6;
+  margin-top: 4px;
+}
+
+/* ================= WORKSPACE ================= */
+
+.workspace {
+  flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+/* ================= HEADER ================= */
+
+.header {
+  padding: 18px 24px;
+  background: white;
+  font-size: 20px;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+/* ================= BUTTONS ================= */
+
+.save-btn,
+.download-btn,
+.clear-btn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.save-btn {
+  background: #2563eb;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.download-btn {
+  background: #16a34a;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.clear-btn {
+  background: #ef4444;
+  color: white;
+}
+
+/* ================= CHAT AREA ================= */
+
+.chat-area {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.chat-block {
+  margin-bottom: 25px;
+}
+
+/* ================= QUESTION ================= */
+
+.question-bubble {
+  background: #2563eb;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 18px;
+  width: fit-content;
+  max-width: 70%;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* ================= ANSWER ================= */
+
+.answer-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  max-width: 75%;
+}
+
+.answer-text {
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ================= META BADGES ================= */
+
+.meta-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.confidence {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.latency {
+  background: #e0f2fe;
+  color: #075985;
+}
+
+.model {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+/* ================= EVIDENCE ================= */
+
+.evidence-section {
+  margin-top: 12px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 10px;
+  font-size: 13px;
+}
+
+/* ================= INPUT AREA ================= */
+
+.input-area {
+  padding: 18px 24px;
+  background: white;
+  border-top: 1px solid #ddd;
+  display: flex;
+  gap: 10px;
+}
+
+.input-area textarea {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: none;
+  font-size: 14px;
+}
+
+/* ================= GENERATE BUTTON ================= */
+
+.input-area button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.input-area button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ================= LOADING ================= */
+
+.loading {
+  font-style: italic;
+  color: gray;
+  margin-top: 10px;
 }
