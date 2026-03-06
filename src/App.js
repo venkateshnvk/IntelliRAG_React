@@ -9,7 +9,9 @@ import {
   ResponsiveContainer
 } from "recharts";
 
-const BASE_URL = process.env.REACT_APP_API_URL;
+const BASE_URL =
+  process.env.REACT_APP_API_URL ||
+  "https://intellirag-c0bab6hadgf8fmfp.centralindia-01.azurewebsites.net";
 
 function App() {
 
